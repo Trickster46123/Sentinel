@@ -1,216 +1,98 @@
-\# SENTINEL
+# SENTINEL
 
+A personal cybersecurity toolkit built with Python.
 
+## About the Project
 
-\*\*Version 0.1 — Python Cybersecurity Toolkit\*\*
+I started SENTINEL because I wanted to build something outside of my college coursework and improve my programming skills.
 
+My goal is to create a useful collection of cybersecurity tools while learning more about Python, file integrity, networking, and security concepts.
 
+Version 0.1 is the first working release. It focuses on password analysis and file integrity.
 
-SENTINEL is a personal cybersecurity project I built in Python to practice programming and explore practical security concepts.
+## Current Features
 
+### Password Analyzer
 
+Checks a password for:
+- Length of at least 8 characters
+- Uppercase letters
+- Lowercase letters
+- Numbers
+- Special characters
 
-The goal is to create a collection of simple security tools that can help users analyze passwords, generate file hashes, and check whether files have changed.
+It gives the password a score out of 5.
 
+This is a basic educational tool, not a guarantee that a password is secure.
 
+### SHA-256 File Hasher
 
-This is my first personal cybersecurity project, and I plan to expand it as I learn more.
+Allows users to enter a file path and generate its SHA-256 hash.
 
+A hash acts like a digital fingerprint of a file. It can be used to check whether the file's contents have changed.
 
+### File Integrity Checker
 
-\## Features
+Compares a file's current SHA-256 hash with an original hash provided by the user.
 
+If the hashes match, SENTINEL reports a successful integrity check.
 
+If they differ, SENTINEL displays a warning.
 
-\### 1. Password Analyzer
+The original hash must come from a trustworthy source.
 
-\- Checks password length.
+### Interactive Menu
 
-\- Checks for uppercase and lowercase letters.
+SENTINEL uses a command-line menu that allows users to select tools and return to the main menu without restarting the application.
 
-\- Checks for numbers and special characters.
+## How to Run
 
-\- Assigns a basic score from 0 to 5.
+Requirements:
+- Python 3.12 or newer
+- No external Python packages
 
+Download or clone the repository, open a terminal in the project folder, and run:
 
+    py sentinel.py
 
-Note: This is an educational checker. A high score does not guarantee that a password is secure.
+On systems where Python uses the `python` command:
 
+    python sentinel.py
 
+## Testing
 
-\### 2. SHA-256 File Hasher
+I manually tested the program using sample passwords and text files.
 
-\- Accepts a file path from the user.
+For file integrity, I generated an original hash, verified that the unchanged file passed, then modified the file and confirmed that SENTINEL reported a mismatch.
 
-\- Reads the file as binary data.
+I also tested its handling of nonexistent files.
 
-\- Generates a SHA-256 hash.
+## Limitations
 
-\- Displays the hash in hexadecimal format.
+SENTINEL is currently an educational project.
 
+- Password scoring does not guarantee security.
+- Real passwords should not be entered for testing.
+- File integrity checking does not detect malware.
+- The file hasher currently reads the entire file into memory.
+- Original hashes must be saved and entered manually.
 
+## Future Development
 
-\### 3. File Integrity Checker
+I'm planning to continue developing SENTINEL.
 
-\- Accepts a file path and an original SHA-256 hash.
+Some ideas for future versions include:
+- Saving original file hashes for future checks.
+- Improved password analysis.
+- Network information tools.
+- A network visualization feature.
+- A graphical interface.
 
-\- Calculates the current hash of the file.
+The next goal is version 0.2, which will focus on improving file integrity checking.
 
-\- Compares the two hashes.
+## Project Status
 
-\- Reports whether the hashes match.
+Version 0.1 — Completed and published.
 
-
-
-A mismatch indicates that the file contents differ from the original version.
-
-
-
-\### 4. Interactive Menu
-
-\- Allows users to select different tools.
-
-\- Returns to the main menu after each operation.
-
-\- Includes an option to exit the program.
-
-
-
-\## Requirements
-
-
-
-\- Python 3.12 or newer.
-
-\- No external Python packages required.
-
-
-
-SENTINEL uses Python's built-in `hashlib` library.
-
-
-
-\## How to Run
-
-
-
-1\. Download or clone this repository.
-
-2\. Open PowerShell or a terminal in the project folder.
-
-3\. Run:
-
-
-
-```powershell
-
-py sentinel.py
-
-```
-
-
-
-On systems where Python is available as `python`, use:
-
-
-
-```bash
-
-python sentinel.py
-
-```
-
-
-
-\## Example Usage
-
-
-
-The main menu displays:
-
-
-
-```text
-
-========================
-
-&#x20;     SENTINEL 0.1
-
-========================
-
-1\. Password Analyzer
-
-2\. Hash a File
-
-3\. Check File Integrity
-
-4\. Exit
-
-```
-
-
-
-To check file integrity:
-
-
-
-1\. Select option 2 to generate a file's SHA-256 hash.
-
-2\. Save the original hash somewhere trustworthy.
-
-3\. Select option 3.
-
-4\. Enter the file path and original hash.
-
-5\. SENTINEL compares the hashes and reports the result.
-
-
-
-\## Security and Limitations
-
-
-
-\- Use sample passwords for testing. Do not enter real passwords into this educational tool.
-
-\- Password complexity alone cannot guarantee security.
-
-\- File integrity checking requires a trustworthy original hash.
-
-\- Matching hashes do not prove that a file is free from malware.
-
-\- Files are currently loaded into memory, so very large files may be inefficient to process.
-
-\- SENTINEL is an educational project, not a replacement for professional security software.
-
-
-
-\## Future Plans
-
-
-
-Potential features for future versions:
-
-
-
-\- Local network information and visualization.
-
-\- Improved password analysis.
-
-\- Better input validation.
-
-\- File hashing in chunks for large files.
-
-\- Graphical user interface.
-
-
-
-\## Project Status
-
-
-
-Version 0.1: Core functionality implemented and manually tested.
-
-
-
-This project is actively being developed as I continue learning Python and cybersecurity.
+This is an ongoing personal project that I'll continue improving as I learn more about programming and cybersecurity.
 
