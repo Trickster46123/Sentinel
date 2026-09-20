@@ -2,8 +2,14 @@ import getpass
 import secrets
 import string
 
+
 def password_analyzer():
     password = getpass.getpass("Enter a sample password to analyze: ")
+
+    # Check for empty input
+    if not password:
+        print("Error: No password entered.")
+        return
 
     length = len(password)
     target = 15
@@ -18,7 +24,7 @@ def password_analyzer():
     if length < 8:
         print("Length: Very short")
 
-    elif length < 15:
+    elif length < target:
         print("Length: Below target")
 
     else:
@@ -35,22 +41,46 @@ def password_analyzer():
     # Character analysis
     print("\n--- Character Analysis ---")
 
-    print("Uppercase:", any(char.isupper() for char in password))
-    print("Lowercase:", any(char.islower() for char in password))
-    print("Numbers:", any(char.isdigit() for char in password))
-    print("Symbols:", any(not char.isalnum() for char in password))
+    has_upper = any(char.isupper() for char in password)
+    has_lower = any(char.islower() for char in password)
+    has_number = any(char.isdigit() for char in password)
+    has_symbol = any(not char.isalnum() for char in password)
+
+    if has_upper:
+        print("[+] Uppercase letters detected")
+    else:
+        print("[-] No uppercase letters detected")
+
+    if has_lower:
+        print("[+] Lowercase letters detected")
+    else:
+        print("[-] No lowercase letters detected")
+
+    if has_number:
+        print("[+] Numbers detected")
+    else:
+        print("[-] No numbers detected")
+
+    if has_symbol:
+        print("[+] Symbols detected")
+    else:
+        print("[-] No symbols detected")
 
     # Recommendations
     print("\n--- Recommendations ---")
 
     if length < target:
         remaining = target - length
-        print(f"Add at least {remaining} more characters to meet the length target.")
+        print(f"[!] Add {remaining} more characters to reach the length target.")
 
     else:
-        print("Length target met. This alone does not guarantee security.")
+        print("[+] Length target met.")
 
-    print("Use a unique password and avoid predictable patterns.")
+    print("Use a unique password for each account.")
+    print("Avoid common passwords and predictable patterns.")
+
+    print("\nNote: Length and character checks do not guarantee password security.")
+
 
 def generate_password():
     length = 20
@@ -68,4 +98,4 @@ def generate_password():
 
     print("\n--- Generated Password ---")
     print(password)
-    print("--------------------------")    
+    print("--------------------------")
