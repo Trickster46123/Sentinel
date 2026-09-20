@@ -1,4 +1,6 @@
 import getpass
+import secrets
+import string
 
 def password_analyzer():
     password = getpass.getpass("Enter a sample password to analyze: ")
@@ -49,3 +51,21 @@ def password_analyzer():
         print("Length target met. This alone does not guarantee security.")
 
     print("Use a unique password and avoid predictable patterns.")
+
+def generate_password():
+    length = 20
+
+    alphabet = (
+        string.ascii_letters
+        + string.digits
+        + string.punctuation
+    )
+
+    password = "".join(
+        secrets.choice(alphabet)
+        for _ in range(length)
+    )
+
+    print("\n--- Generated Password ---")
+    print(password)
+    print("--------------------------")    

@@ -1,16 +1,17 @@
-import hashlib
-from password_tools import password_analyzer
+from password_tools import password_analyzer, generate_password
 from file_tools import hash_file, check_file_integrity
+
 
 def main():
     while True:
         print("\n========================")
-        print("      SENTINEL 0.1")
+        print("      SENTINEL 0.2")
         print("========================")
         print("1. Password Analyzer")
         print("2. Hash a File")
         print("3. Check File Integrity")
-        print("4. Exit")
+        print("4. Generate Secure Password")
+        print("5. Exit")
 
         choice = input("\nSelect an option: ")
 
@@ -24,6 +25,9 @@ def main():
             check_file_integrity()
 
         elif choice == "4":
+            generate_password()
+
+        elif choice == "5":
             print("Exiting SENTINEL.")
             break
 
