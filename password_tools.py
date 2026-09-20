@@ -1,28 +1,49 @@
 def password_analyzer():
-    password = input("Enter a password to analyze: ")
+    password = input("Enter a sample password to analyze: ")
 
-    score = 0
+    length = len(password)
+    target = 15
 
-    if len(password) >= 8:
-        score += 1
+    print("\n==============================")
+    print(" SENTINEL PASSWORD ANALYZER")
+    print("==============================")
 
-    if any(char.isupper() for char in password):
-        score += 1
+    # Length analysis
+    print(f"\nPassword length: {length} characters")
 
-    if any(char.islower() for char in password):
-        score += 1
+    if length < 8:
+        print("Length: Very short")
 
-    if any(char.isdigit() for char in password):
-        score += 1
+    elif length < 15:
+        print("Length: Below target")
 
-    if any(not char.isalnum() for char in password):
-        score += 1
-
-    print("\nPassword score:", score, "/ 5")
-
-    if score <= 2:
-        print("Strength: WEAK")
-    elif score <= 4:
-        print("Strength: MODERATE")
     else:
-        print("Strength: STRONG")
+        print("Length: Target met")
+
+    # Length gauge
+    filled = min(length, target)
+
+    gauge = "#" * filled + "-" * (target - filled)
+
+    print(f"\nLength Gauge: [{gauge}]")
+    print(f"Progress: {length}/{target} characters")
+
+    # Character analysis
+    print("\n--- Character Analysis ---")
+
+    print("Uppercase:", any(char.isupper() for char in password))
+    print("Lowercase:", any(char.islower() for char in password))
+    print("Numbers:", any(char.isdigit() for char in password))
+    print("Symbols:", any(not char.isalnum() for char in password))
+
+    # Recommendations
+    print("\n--- Recommendations ---")
+
+    if length < target:
+        remaining = target - length
+        print(f"Add at least {remaining} more characters to meet the length target.")
+
+    else:
+        print("Length target met. This alone does not guarantee security.")
+
+    print("Use a unique password and avoid predictable patterns.")
