@@ -1,5 +1,7 @@
+import getpass
+
 def password_analyzer():
-    password = input("Enter a sample password to analyze: ")
+    password = getpass.getpass("Enter a sample password to analyze: ")
 
     length = len(password)
     target = 15
