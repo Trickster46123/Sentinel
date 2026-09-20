@@ -156,6 +156,6 @@ The long-term goal is to turn SENTINEL into a more complete and reliable cyberse
 
 Version 0.1 — Completed and published.
 
-Version 0.2 — Developed and manually tested. Preparing for release.
+Version 0.2 — Completed and published.
 
 SENTINEL is an ongoing personal project that I'll continue improving as I learn more about programming and cybersecurity.
